@@ -1,22 +1,30 @@
 <template>
   <div>
-    <variable-control titulo="Temperatura" unidad=" °C"></variable-control>
-    <variable-control titulo="Humedad" unidad=" %"></variable-control>
-    <variable-control titulo="Iluminación" unidad=" Lumen"></variable-control>
-<variable-control titulo="Caudal" unidad=" Litros"></variable-control>
 
+    <h4>Control de Temperatura</h4>
+    <button @click="temperatura--">Disminuir</button>
+    <span>{{temperatura}}</span><span> °C</span>
+    <button @click="temperatura++">Aumentar</button>
+    <br>
+    <h5 v-if="temperatura > 20" style="color:orange">Cuidado!</h5>
+    <h5 v-show="temperatura > 25" style="color:red">Mucho Cuidado!</h5>
+    <br><br>
+
+    <h4>Control de humedad</h4>
+    <button @click="humedad--">Disminuir</button>
+    <span>{{humedad}}</span><span> %</span>
+    <button @click="humedad++">Aumentar</button>
+    <br><br>
+    
   </div>
 </template>
 
 <script>
-import VariableControl from '~/components/VariableControl.vue'
   export default {
-  components: { VariableControl },
     data(){
       return {
         temperatura: 10,
-        humedad: 0,
-        iluminacion: 0,
+        humedad: 0
       }
     }
   }
