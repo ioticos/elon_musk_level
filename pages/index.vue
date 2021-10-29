@@ -3,7 +3,12 @@
 
     <h4>Control de Temperatura</h4>
     <button @click="temperatura--">Disminuir</button>
-    <span class="tipografia" :class="{'warning' : temperatura > 20}" >{{temperatura}}</span><span> °C</span>
+    <span 
+      :class="{
+        warning : temperatura > 20 && temperatura < 25, 
+        danger : temperatura >= 25}" >
+        
+        {{temperatura}}</span><span> °C</span>
     <button @click="temperatura++">Aumentar</button>
     <br>
     <h5 v-if="temperatura > 20" style="color:orange">Cuidado!</h5>
