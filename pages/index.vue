@@ -3,7 +3,7 @@
 
     <h4>Control de Temperatura</h4>
     <button @click="temperatura--">Disminuir</button>
-    <span>{{temperatura}}</span><span> °C</span>
+    <span class="tipografia" :class="{'warning' : temperatura > 20}" >{{temperatura}}</span><span> °C</span>
     <button @click="temperatura++">Aumentar</button>
     <br>
     <h5 v-if="temperatura > 20" style="color:orange">Cuidado!</h5>
@@ -12,7 +12,7 @@
 
     <h4>Control de humedad</h4>
     <button @click="humedad--">Disminuir</button>
-    <span>{{humedad}}</span><span> %</span>
+    <span class="tipografia">{{humedad}}</span><span> %</span>
     <button @click="humedad++">Aumentar</button>
     <br><br>
     
@@ -23,9 +23,21 @@
   export default {
     data(){
       return {
-        temperatura: 10,
+        temperatura: 13,
         humedad: 0
       }
     }
   }
 </script>
+
+<style>
+  .tipografia{
+    font-family: Arial;
+  }
+  .warning{
+    color:yellow
+  }
+  .danger{
+    color: red
+  }
+</style>
