@@ -1,5 +1,32 @@
 <template>
-  <div>
+  <div style="padding: 20px">
+    <!-- FORMULARIO -->
+    <h3>Inscribir Alumno</h3>
+
+    <div style="outline:1px solid black;">
+      Nombre: {{nuevoAlumno.nombre}}<br>
+      Edad: {{nuevoAlumno.edad}}<br>
+      Promedio: {{nuevoAlumno.promedio}}
+    </div>
+    <br>
+<pre>
+{{nuevoAlumno}}
+</pre>
+    
+
+    <label for="">Nombre:</label><br />
+    <input v-model="nuevoAlumno.nombre" type="text" style="background: gray" />
+    <br /><br />
+    <label for="">Edad:</label><br />
+    <input v-model="nuevoAlumno.edad" type="text" style="background: gray" />
+    <br /><br />
+    <label for="">Promedio:</label><br />
+    <input v-model="nuevoAlumno.promedio" type="text" style="background: gray" />
+    <button>Agregar</button>
+
+    <!-- TABLA -->
+    <br />
+    <h3>Alumnado:</h3>
     <table>
       <tr>
         <th>#</th>
@@ -8,13 +35,12 @@
         <th>Promedio</th>
       </tr>
 
-      <tr v-for="alumno, index in alumnos" :key="'alumno_' + index">
-        <td>{{index}}</td>
-        <td>{{alumno.nombre}}</td>
-        <td>{{alumno.edad}}</td>
-        <td>{{alumno.promedio}}</td>
+      <tr v-for="(alumno, index) in alumnos" :key="'alumno_' + index">
+        <td>{{ index }}</td>
+        <td>{{ alumno.nombre }}</td>
+        <td>{{ alumno.edad }}</td>
+        <td>{{ alumno.promedio }}</td>
       </tr>
-
     </table>
   </div>
 </template>
@@ -23,25 +49,13 @@
 export default {
   data() {
     return {
-        alumnos: [
-            {
-                nombre: "Pedro",
-                edad: 28,
-                promedio: 8.7
-            },
-            {
-                nombre: "Luis",
-                edad: 25,
-                promedio: 7.7
-            },
-            {
-                nombre: "Ana",
-                edad: 25,
-                promedio: 6.7
-            },
-            
-        ]
-    }
+      nuevoAlumno: {
+        nombre: "",
+        edad: null,
+        promedio: null,
+      },
+      alumnos: [],
+    };
   },
 };
 </script>
