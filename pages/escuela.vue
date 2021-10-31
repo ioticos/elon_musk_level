@@ -1,5 +1,7 @@
 <template>
+
   <div style="padding: 20px">
+
     <!-- FORMULARIO -->
     <h3>Inscribir Alumno</h3>
 
@@ -58,6 +60,27 @@ export default {
     };
   },
 };
+
+
+// TABLA JS ->   edad -> AA  ; numero -> BB; nuevoAlumno -> CC; viejoAlumno -> CC
+
+// MEMORIA RAM ->    AA   |   BB  |   CC   |   DD   |
+// VALORES ->        10   |   11  |  {NEP}  
+
+var edad = 10;
+var numero = edad;
+numero = 11;
+
+var nuevoAlumno= 
+      {
+        nombre: "Juan",
+        edad: 10,
+        promedio: 11,
+      }
+
+var viejoAlumno = nuevoAlumno;
+
+
 </script>
 
 <style>
