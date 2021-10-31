@@ -3,16 +3,12 @@
     <!-- FORMULARIO -->
     <h3>Inscribir Alumno</h3>
 
-    <div style="outline:1px solid black;">
-      Nombre: {{nuevoAlumno.nombre}}<br>
-      Edad: {{nuevoAlumno.edad}}<br>
-      Promedio: {{nuevoAlumno.promedio}}
+    <div style="outline: 1px solid black">
+      Nombre: {{ nuevoAlumno.nombre }}<br />
+      Edad: {{ nuevoAlumno.edad }}<br />
+      Promedio: {{ nuevoAlumno.promedio }}
     </div>
-    <br>
-<pre>
-{{nuevoAlumno}}
-</pre>
-    
+    <br />
 
     <label for="">Nombre:</label><br />
     <input v-model="nuevoAlumno.nombre" type="text" style="background: gray" />
@@ -21,8 +17,12 @@
     <input v-model="nuevoAlumno.edad" type="text" style="background: gray" />
     <br /><br />
     <label for="">Promedio:</label><br />
-    <input v-model="nuevoAlumno.promedio" type="text" style="background: gray" />
-    <button>Agregar</button>
+    <input
+      v-model="nuevoAlumno.promedio"
+      type="text"
+      style="background: gray"
+    />
+    <button @click="alumnos.push(nuevoAlumno)">Agregar</button>
 
     <!-- TABLA -->
     <br />
