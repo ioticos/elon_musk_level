@@ -61,11 +61,15 @@ export default {
       alumnos: [],
     };
   },
+  mounted(){
+    this.alumnos = JSON.parse(window.localStorage.getItem("alumnado"));
+  },
   methods:{
     agregarNuevoAlumno(){
-      //const nuevoAlumnoCopy = JSON.parse(JSON.stringify(this.nuevoAlumno)) ;
       const { ...nuevoAlumnoCopy } = this.nuevoAlumno;
       this.alumnos.push(nuevoAlumnoCopy);
+
+      window.localStorage.setItem("alumnado", JSON.stringify(this.alumnos));
     }
   }
 };
