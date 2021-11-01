@@ -15,16 +15,18 @@
     <label for="">Nombre:</label><br />
     <input v-model="nuevoAlumno.nombre" type="text" style="background: gray" />
     <br /><br />
+
     <label for="">Edad:</label><br />
     <input v-model="nuevoAlumno.edad" type="text" style="background: gray" />
     <br /><br />
+    
     <label for="">Promedio:</label><br />
     <input
       v-model="nuevoAlumno.promedio"
       type="text"
       style="background: gray"
     />
-    <button @click="alumnos.push(nuevoAlumno)">Agregar</button>
+    <button @click="agregarNuevoAlumno()">Agregar</button>
 
     <!-- TABLA -->
     <br />
@@ -59,26 +61,14 @@ export default {
       alumnos: [],
     };
   },
+  methods:{
+    agregarNuevoAlumno(){
+      //const nuevoAlumnoCopy = JSON.parse(JSON.stringify(this.nuevoAlumno)) ;
+      const { ...nuevoAlumnoCopy } = this.nuevoAlumno;
+      this.alumnos.push(nuevoAlumnoCopy);
+    }
+  }
 };
-
-
-// TABLA JS ->   edad -> AA  ; numero -> BB; nuevoAlumno -> CC; viejoAlumno -> CC
-
-// MEMORIA RAM ->    AA   |   BB  |   CC   |   DD   |
-// VALORES ->        10   |   11  |  {NEP}  
-
-var edad = 10;
-var numero = edad;
-numero = 11;
-
-var nuevoAlumno= 
-      {
-        nombre: "Juan",
-        edad: 10,
-        promedio: 11,
-      }
-
-var viejoAlumno = nuevoAlumno;
 
 
 </script>
