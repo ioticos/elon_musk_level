@@ -4,13 +4,14 @@
     <h3>Productos ({{productos.length}})</h3>
 
     <!-- FORMULARIO -->
-    <select v-model="productoSeleccionado">
+    <select @change="resetearCantidad()" v-model="productoSeleccionado">
         <option disabled  value="-1">Selecciona un Producto</option>
         <option v-for="producto, index in productos" :value="index" :key="producto.id">
             {{producto.nombre}}
         </option>
     </select>
-    <input v-model.number="cantidad" type="number" style="width: 40px">
+    <input v-if="productoSeleccionado != -1" v-model.number="cantidad" min="1" :max="productos[productoSeleccionado].stock" type="number" style="width: 40px">
+   
     <button @click="agregarProducto()">Agregar</button>
 
 <br><br>
@@ -28,7 +29,7 @@ export default {
     data(){
         return {
             productoSeleccionado: -1,
-            cantidad: 0,
+            cantidad: 1,
             productos: [
                 {
                     id: 1,
@@ -63,6 +64,9 @@ export default {
         }
     },
     methods: {
+        resetearCantidad(){
+            this.cantidad = 1;
+        },
         agregarProducto(){
             let producto = this.productos[this.productoSeleccionado];
             producto.cantidad = this.cantidad;
