@@ -2,6 +2,7 @@
   <div style="padding: 20px">
 
     <h3>Productos ({{productos.length}})</h3>
+
     <!-- FORMULARIO -->
     <select v-model="productoSeleccionado">
         <option disabled  value="-1">Selecciona un Producto</option>
@@ -9,9 +10,15 @@
             {{producto.nombre}}
         </option>
     </select>
+    <input v-model.number="cantidad" type="number" style="width: 40px">
     <button @click="agregarProducto()">Agregar</button>
+
 <br><br>
-   Carrito:{{carrito}}
+  Carrito:
+<pre>
+{{carrito}}
+</pre>
+ 
 
   </div>
 </template>
@@ -21,13 +28,14 @@ export default {
     data(){
         return {
             productoSeleccionado: -1,
+            cantidad: 0,
             productos: [
                 {
                     id: 1,
                     nombre: "Uniforme",
                     precio: 12.40,
                     max: 5,
-                    stock: 10           
+                    stock: 2           
                 },
                 {
                     id: 2,
@@ -56,7 +64,8 @@ export default {
     },
     methods: {
         agregarProducto(){
-            const producto = this.productos[this.productoSeleccionado];
+            let producto = this.productos[this.productoSeleccionado];
+            producto.cantidad = this.cantidad;
             this.carrito.push(producto);
         }
     }
