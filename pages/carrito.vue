@@ -1,7 +1,8 @@
 <template>
+<!-- https://medium.com/notonlycss/the-difference-between-computed-and-methods-in-vue-js-9cb05c59ed98#:~:text=methods%20don't%20know%20if,everytime%20to%20check%2C%20only%20once! -->
   <div style="padding: 20px">
 
-    <h3>Productos ({{productos.length}}){{total}} {{total}} {{total}} {{total}} {{total}} {{total}}</h3>
+    <h3 :class="limit">Productos ({{productos.length}}){{total}}</h3>
 
     <!-- FORMULARIO -->
     <select @change="resetearCantidad()" v-model="productoSeleccionado">
@@ -50,7 +51,7 @@ export default {
                 {
                     id: 3,
                     nombre: "Mapa",
-                    precio: 10.70,
+                    precio: 7.70,
                     max: 100,
                     stock: 5           
                 },
@@ -65,7 +66,13 @@ export default {
             carrito: []
         }
     },
-    computed: {
+    computed: { 
+        limit(){
+            return  this.productoSeleccionado != -1 ? this.productos[this.productoSeleccionado].precio >= 10 ? 'danger' : 'success' : ''
+            
+            
+            
+        },
         total(){
             console.log("TOTAL HA SIDO LLAMADO");
             var total = 0;
@@ -91,4 +98,10 @@ export default {
 </script>
 
 <style>
+    .danger{
+        color: red
+    }
+    .success{
+        color:green
+    }
 </style>
