@@ -1,6 +1,7 @@
 <template>
-
   <div style="padding: 20px">
+
+   
 
     <!-- FORMULARIO -->
     <h3>Inscribir Alumno</h3>
@@ -19,7 +20,7 @@
     <label for="">Edad:</label><br />
     <input v-model="nuevoAlumno.edad" type="text" style="background: gray" />
     <br /><br />
-    
+
     <label for="">Promedio:</label><br />
     <input
       v-model="nuevoAlumno.promedio"
@@ -46,6 +47,8 @@
         <td>{{ alumno.promedio }}</td>
       </tr>
     </table>
+
+    
   </div>
 </template>
 
@@ -61,20 +64,18 @@ export default {
       alumnos: [],
     };
   },
-  mounted(){
+  mounted() {
     this.alumnos = JSON.parse(window.localStorage.getItem("alumnado"));
   },
-  methods:{
-    agregarNuevoAlumno(){
+  methods: {
+    agregarNuevoAlumno() {
       const { ...nuevoAlumnoCopy } = this.nuevoAlumno;
       this.alumnos.push(nuevoAlumnoCopy);
 
       window.localStorage.setItem("alumnado", JSON.stringify(this.alumnos));
-    }
-  }
+    },
+  },
 };
-
-
 </script>
 
 <style>

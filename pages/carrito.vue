@@ -2,6 +2,8 @@
 <!-- https://medium.com/notonlycss/the-difference-between-computed-and-methods-in-vue-js-9cb05c59ed98#:~:text=methods%20don't%20know%20if,everytime%20to%20check%2C%20only%20once! -->
   <div style="padding: 20px">
 
+
+
     <h3 :class="limit">Productos ({{productos.length}}){{total}}</h3>
 
     <!-- FORMULARIO -->

@@ -1,6 +1,8 @@
 <template>
   <div>
 
+
+
     <h4>Control de Temperatura</h4>
     <button @click="temperatura--">Disminuir</button>
     <span 
